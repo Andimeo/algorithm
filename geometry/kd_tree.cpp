@@ -54,7 +54,7 @@ struct KDTree {
     if (q.e[dim] >= split[i]->e[dim]) swap(lc, rc);
     query(lc, dep + 1, q);
     if (ans.second == NULL || ans.first > d) ans = {d, split[i]};
-    if ((q.e[dim] - split[i]->e[dim]) * (q.e[dim] - split[i]->e[dim]) < d) {
+    if ((q.e[dim] - split[i]->e[dim]) * (q.e[dim] - split[i]->e[dim]) < dis(*ans.second, q)) {
       query(rc, dep + 1, q);
     }
   }
